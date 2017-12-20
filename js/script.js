@@ -3,12 +3,15 @@
 document.documentElement.classList.remove("no-js");
 document.documentElement.classList.add("js");
 
+Array.from(document.querySelectorAll('.btc-amount')).forEach((el) => {
+  el.textContent = window.location.search.split('amount=')[1] || 0.01;
+});
+
 const sections = {
   loading: document.getElementById("section-loading"),
   actions: document.getElementById("section-actions"),
-  address: document.getElementById("section-address"),
-  status: document.getElementById("section-status")
-}
+  transaction: document.getElementById("section-transaction")
+};
 
 function showSection(section) {
   for (let key in sections) {
@@ -17,43 +20,35 @@ function showSection(section) {
   sections[section].removeAttribute("hidden");
 }
 
-/* Generate Wallet Address ******************** */
+function checkTransaction(address) {
+  return new Promise((resolve) => {
 
-const generateAddressButton = document.getElementById("generate-address-button");
-generateAddressButton.addEventListener("click", (event) => {
+    // @todo
+    setTimeout(() => {
+      document.getElementById("address").textContent = address;
+      document.getElementById("transaction-status").textContent = "Pending";
+      document.getElementById("transaction-amount").textContent = "1 BTC";
+      document.getElementById("transaction-from-address").textContent = "954hng9n45";
+      resolve();
+    }, 1000);
+
+  });
+}
+
+function generateWalletAddress() {
+  return new Promise((resolve) => {
+
+    // @todo 
+    setTimeout(() => {
+      resolve('sample-wallet-address');
+    }, 1000);
+
+  });
+}
+
+document.getElementById("generate-address-button").addEventListener("click", (event) => {
   showSection("loading");
-
-  // Call API to get address
-  setTimeout(() => {
-
-    // Add address to HTML
-    document.getElementById("new-address").textContent = "4i3thn3480thn43otn";
-    showSection("address");
-
-  }, 2000);
-})
-
-
-/* Check Status ******************** */
-
-const checkStatusButton = document.getElementById("check-status-button");
-checkStatusButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  showSection("loading");
-
-  const address = document.getElementById("address").value;
-  
-  // Call API to get transactions
-  setTimeout(() => {
-
-    // Add info to HTML
-
-    document.getElementById("status-address").textContent = address;
-    document.getElementById("status-amount").textContent = "0.01 BTC";
-    document.getElementById("status-from-address").textContent = "elknfgi348hfno34";
-    showSection("status");
-
-  }, 2000);
-
-})
-
+  generateWalletAddress()
+    .then((address) => checkTransaction(address))
+    .then(() => showSection("transaction"));
+});

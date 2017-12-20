@@ -96,7 +96,7 @@ body {
 
 header {
   margin-bottom: 15px;
-  font-size: 2.2rem;
+  font-size: 2.3rem;
 }
 
 header .fa {
@@ -108,6 +108,7 @@ header .fa {
   align-items: center;
   background: #60CEFF;
   color: #fff;
+  font-size: 0.9em;
 }
 
 main {
@@ -157,6 +158,10 @@ input {
 #generate-address-button {
   width: 100%;
   height: 50px;
+}
+
+#generate-address-button span {
+  margin: 0 3px;
 }
 
 input {

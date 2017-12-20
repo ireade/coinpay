@@ -19,36 +19,24 @@
       
       <!-- Actions -->
       <div id="section-actions">
-        <p>
-          <button id="generate-address-button" class="button">
-            Generate New Address &nbsp; <i class="fa fa-plus"></i>
-          </button>
-        </p>
-        <p>or:</p>
-        <form>
-          <input required type="text" id="address" placeholder="Wallet Address" aria-label="Wallet Address">      
-          <button id="check-status-button" class="button">
-            Check &nbsp; <i class="fa fa-dashboard"></i>
-          </button>
-        </form>
-      </div>
-
-      <!-- New Wallet Address -->
-      <div hidden id="section-address">
-        <p>Your wallet address is:</p>
-        <code id="new-address"></code>
+        <button id="generate-address-button" class="button">
+          Pay <span class="btc-amount">0.01</span> BTC &nbsp; <i class="fa fa-plus"></i>
+        </button>
       </div>
 
       <!-- Checking Status -->
-      <div hidden id="section-status">
-        <p>Checking status of <code id="status-address"></code>:</p>
+      <div hidden id="section-transaction">
+        <p>Please send <span class="btc-amount">0.01</span> BTC to: <code id="address"></code></p>
 
         <dl>
+          <dt>Status:</dt>
+          <dd id="transaction-status"></dd>
+
           <dt>Amount:</dt>
-          <dd id="status-amount"></dd>
+          <dd id="transaction-amount"></dd>
 
           <dt>From Address:</dt>
-          <dd id="status-from-address"></dd>
+          <dd id="transaction-from-address"></dd>
         </dl>
       </div>
 
@@ -62,7 +50,7 @@
       </div>
     </main>
     <footer>
-      Bitcoin Masterclass 2017
+      Bitcoin Masterclass Lagos 2017
     </footer>  
   </div>
   <script src="js/script.js"></script>
