@@ -1,0 +1,70 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CoinPay</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Overpass:300,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://use.fontawesome.com/68445b3a68.js"></script>
+</head>
+<body>
+  <div class="body-container">
+    <header>
+      <h1> <i class="fa fa-btc"></i> <strong>Coin</strong><em>Pay</em></h1>
+    </header>
+    <main>
+      
+      <!-- Actions -->
+      <div id="section-actions">
+        <p>
+          <button id="generate-address-button" class="button">
+            Generate New Address &nbsp; <i class="fa fa-plus"></i>
+          </button>
+        </p>
+        <p>or:</p>
+        <form>
+          <input required type="text" id="address" placeholder="Wallet Address" aria-label="Wallet Address">      
+          <button id="check-status-button" class="button">
+            Check &nbsp; <i class="fa fa-dashboard"></i>
+          </button>
+        </form>
+      </div>
+
+      <!-- New Wallet Address -->
+      <div hidden id="section-address">
+        <p>Your wallet address is:</p>
+        <code id="new-address"></code>
+      </div>
+
+      <!-- Checking Status -->
+      <div hidden id="section-status">
+        <p>Checking status of <code id="status-address"></code>:</p>
+
+        <dl>
+          <dt>Amount:</dt>
+          <dd id="status-amount"></dd>
+
+          <dt>From Address:</dt>
+          <dd id="status-from-address"></dd>
+        </dl>
+      </div>
+
+      <!-- Loading -->
+      <div hidden id="section-loading">
+        <div class="spinner">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      Bitcoin Masterclass 2017
+    </footer>  
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>
